@@ -1,7 +1,7 @@
-"""program.json -> program.pdf (Turkish, figures included). Run: python3 build.py"""
+"""program.json -> program.pdf + gunluk.html (Turkish, figures included). Run: python3 build.py"""
 import json, os
 from reportlab.lib.pagesizes import A4
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, KeepTogether
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, KeepTogether, PageBreak
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.lib import colors
 from reportlab.lib.units import mm
@@ -56,5 +56,22 @@ st+=[P('Dinlenme günleri',H),P(d['rest_days']),P('İlerleme',H)]+[P('• '+t) f
 st+=[P('Beslenme ve su',H)]+[P('• '+t) for t in d['nutrition']]
 st+=[P('Güvenlik',H)]+[P('• '+t) for t in d['safety']]
 st+=[Spacer(1,6),P('Bu program genel bilgi amaçlıdır; sağlık sorunun olursa bir hekime danış.',S)]
+GS=TableStyle([('BACKGROUND',(0,0),(-1,0),L),('LINEBELOW',(0,0),(-1,-1),.4,colors.HexColor('#d6ded2')),('VALIGN',(0,0),(-1,-1),'MIDDLE'),('TOPPADDING',(0,0),(-1,-1),3),('BOTTOMPADDING',(0,0),(-1,-1),3)])
+def weeks(ws):
+    rows=[[P(h,B) for h in ('Hafta','Evre','Setler','Zorluk (kalan tekrar)','Odak / değişiklik','Yürüyüş')]]
+    for w in ws: rows.append([P(str(w['hafta']),B),P(w['evre']),P(w['set']),P(w['zorluk']),P(w['odak']),P(w['yuruyus'])])
+    t=Table(rows,colWidths=[16*mm,30*mm,22*mm,25*mm,63*mm,22*mm],repeatRows=1); t.setStyle(GS)
+    for i,w in enumerate(ws,1):
+        if w['evre']=='Hafif hafta': t.setStyle(TableStyle([('BACKGROUND',(0,i),(-1,i),colors.HexColor('#fbe9ed'))]))
+    return t
+st+=[PageBreak(),P('12 haftalık plan',H),P('Her hafta aynı 4 gün ve aynı hareketler; değişen set, zorluk ve varyasyon. Zorluk parantez içinde günlükteki 1-10 ölçeğiyle.',S),weeks(d['weeks'])]
+LOG=['Tarih','Hareket','Set','Tekrar','Bant / kg','Zorluk 1-10','Not']
+lt=Table([[P(h,B) for h in LOG]]+[['']*7 for _ in range(24)],colWidths=[20*mm,50*mm,12*mm,18*mm,22*mm,20*mm,36*mm],rowHeights=[None]+[8.6*mm]*24,repeatRows=1)
+lt.setStyle(TableStyle([('BACKGROUND',(0,0),(-1,0),L),('GRID',(0,0),(-1,-1),.4,colors.HexColor('#c9d3c4')),('VALIGN',(0,0),(-1,-1),'MIDDLE')]))
+st+=[PageBreak(),P('Antrenman günlüğü',H),P('Çıktı alıp doldurabilirsin; bilgisayar/telefonda gunluk.html daha pratik. Bant: mavi / kırmızı / siyah / North Pacific.',S),lt]
 SimpleDocTemplate(os.path.join(HERE,'program.pdf'),pagesize=A4,leftMargin=16*mm,rightMargin=16*mm,topMargin=14*mm,bottomMargin=14*mm,title=d['title']).build(st)
+# gunluk.html: hareket listesi program.json'dan gelir
+ex={x['name']:[e['n'] for e in x['ex']] for x in d['days']}
+tpl=open(os.path.join(HERE,'gunluk_sablon.html'),encoding='utf-8').read()
+open(os.path.join(HERE,'gunluk.html'),'w',encoding='utf-8').write(tpl.replace('/*PROGRAM*/{}',json.dumps(ex,ensure_ascii=False)))
 print('ok')

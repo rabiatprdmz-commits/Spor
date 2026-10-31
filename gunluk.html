@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Antrenman Günlüğü</title>
+<!-- build.py bu şablondan gunluk.html üretir; hareket listesini program.json'dan alır. Bu dosyayı düzenle, gunluk.html'i değil. -->
+<style>
+:root{--bg:#f7f9f5;--card:#fff;--ink:#22302a;--mute:#5d6b62;--line:#d6ded2;--acc:#d4506a;--grn:#2f5d50;--soft:#e1ead9}
+@media (prefers-color-scheme:dark){:root{--bg:#141a17;--card:#1d2521;--ink:#e6ece8;--mute:#9aa8a0;--line:#33403a;--acc:#e8738a;--grn:#8cc4b2;--soft:#25302b}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:860px;margin:0 auto;padding:16px}
+h1{color:var(--grn);font-size:22px;margin:4px 0 2px}
+h2{color:var(--acc);font-size:16px;margin:22px 0 8px}
+p.s{color:var(--mute);margin:0 0 12px;font-size:13px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:end}
+label{font-size:12px;color:var(--mute);display:flex;flex-direction:column;gap:3px}
+input,select,button{font:inherit;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:7px;padding:6px 8px}
+button{cursor:pointer}
+button.p{background:var(--grn);color:var(--bg);border-color:var(--grn);font-weight:600}
+.ex{border-top:1px solid var(--line);padding:10px 0}
+.ex b{display:block;margin-bottom:6px}
+.ex input[type=number]{width:70px}
+.ex input.n{flex:1;min-width:140px}
+.tw{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{border-bottom:1px solid var(--line);padding:5px 6px;text-align:left;white-space:nowrap}
+th{background:var(--soft)}
+td.x button{padding:2px 7px;font-size:12px}
+.msg{color:var(--grn);font-size:13px;min-height:18px;margin-top:6px}
+</style>
+</head>
+<body>
+<main>
+<h1>Antrenman günlüğü</h1>
+<p class="s">Kayıtlar sadece bu tarayıcıda durur. Ara ara “CSV indir” ile yedek al; başka cihazda “CSV yükle” ile geri getir. Zorluk: 1-3 tekrar gücün kaldıysa ~7-9, 4-5 kaldıysa ~5-6.</p>
+
+<div class="card">
+  <div class="row">
+    <label>Tarih <input type="date" id="tarih"></label>
+    <label>Gün <select id="gun"></select></label>
+  </div>
+  <div id="liste"></div>
+  <div class="row" style="margin-top:10px">
+    <button class="p" id="kaydet">Kaydet</button>
+  </div>
+  <div class="msg" id="msg"></div>
+</div>
+
+<h2>Geçmiş</h2>
+<div class="row" style="margin-bottom:8px">
+  <button id="indir">CSV indir</button>
+  <label style="flex-direction:row;align-items:center;gap:6px">CSV yükle <input type="file" id="yukle" accept=".csv,text/csv"></label>
+</div>
+<div class="tw"><table><thead><tr><th>Tarih</th><th>Gün</th><th>Hareket</th><th>Set</th><th>Tekrar</th><th>Bant</th><th>kg</th><th>Zorluk</th><th>Not</th><th></th></tr></thead><tbody id="gecmis"></tbody></table></div>
+</main>
+<script>
+const PROGRAM={"Pazartesi": ["Goblet squat", "Rumen deadlift", "Glute bridge (loop band dizin üstünde)", "Reverse lunge", "Yan adım (loop band)"], "Salı": ["Diz üstü şınav", "Tek kol dumbbell row", "Omuz press", "Bant pull-apart (North Pacific)", "Plank", "Dead bug"], "Perşembe": ["Tek bacak rumen deadlift", "Geniş duruş squat (dizde band + dumbbell)", "Tek bacak hip thrust (omuzlar kanepe kenarında, dumbbell kalçada)", "Donkey kick (loop band)", "Yan plank"], "Cumartesi": ["Goblet squat", "Dumbbell row", "Diz üstü şınav", "Glute bridge (loop band)", "Kardiyo: tempolu yürüyüş ya da interval"]};
+const BANTLAR=['yok','mavi','kırmızı','siyah','North Pacific'];
+const COLS=['tarih','gun','hareket','set','tekrar','bant','dumbbell_kg','zorluk_1_10','not'];
+const KEY='spor-gunluk-v1';
+let kayit=[];
+try{kayit=JSON.parse(localStorage.getItem(KEY)||'[]')}catch(e){kayit=[]}
+const sakla=()=>{try{localStorage.setItem(KEY,JSON.stringify(kayit))}catch(e){msg('Tarayıcı kaydetmeye izin vermedi; CSV indirerek sakla.')}};
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const msg=t=>{$('msg').textContent=t;setTimeout(()=>{if($('msg').textContent===t)$('msg').textContent=''},4000)};
+
+$('tarih').value=new Date().toISOString().slice(0,10);
+const gunler=Object.keys(PROGRAM);
+$('gun').innerHTML=gunler.map(g=>`<option>${esc(g)}</option>`).join('');
+const trGun=['Pazar','Pazartesi','Salı','Çarşamba','Perşembe','Cuma','Cumartesi'][new Date().getDay()];
+if(gunler.includes(trGun))$('gun').value=trGun;
+
+function listele(){
+  $('liste').innerHTML=PROGRAM[$('gun').value].map((h,i)=>`<div class="ex" data-h="${esc(h)}"><b>${esc(h)}</b><div class="row">
+  <label>Set<input type="number" min="0" max="10" class="set"></label>
+  <label>Tekrar / sn<input type="number" min="0" max="200" class="tekrar"></label>
+  <label>Bant<select class="bant">${BANTLAR.map(b=>`<option>${b}</option>`).join('')}</select></label>
+  <label>kg<input type="number" min="0" max="50" step="0.5" class="kg"></label>
+  <label>Zorluk<input type="number" min="1" max="10" class="zorluk"></label>
+  <label style="flex:1">Not<input class="n not"></label></div></div>`).join('');
+}
+$('gun').onchange=listele;
+
+$('kaydet').onclick=()=>{
+  let n=0;
+  document.querySelectorAll('.ex').forEach(el=>{
+    const v=c=>el.querySelector('.'+c).value.trim();
+    if(!v('set')&&!v('tekrar'))return;
+    kayit.push({tarih:$('tarih').value,gun:$('gun').value,hareket:el.dataset.h,set:v('set'),tekrar:v('tekrar'),bant:v('bant'),dumbbell_kg:v('kg'),zorluk_1_10:v('zorluk'),not:v('not')});n++;
+  });
+  if(!n){msg('Set veya tekrar girilmiş hareket yok.');return}
+  sakla();ciz();listele();msg(n+' hareket kaydedildi.');
+};
+
+function ciz(){
+  const s=kayit.map((r,i)=>[r,i]).sort((a,b)=>b[0].tarih.localeCompare(a[0].tarih));
+  $('gecmis').innerHTML=s.map(([r,i])=>`<tr>${COLS.map(c=>`<td>${esc(r[c])}</td>`).join('')}<td class="x"><button data-i="${i}" title="Sil">×</button></td></tr>`).join('');
+}
+$('gecmis').onclick=e=>{const i=e.target.dataset.i;if(i!==undefined&&confirm('Bu satır silinsin mi?')){kayit.splice(+i,1);sakla();ciz()}};
+
+// CSV: ';' ayraçlı + BOM, Türkçe Excel'de doğrudan açılır
+const q=v=>{v=String(v??'');return /[;"\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v};
+$('indir').onclick=()=>{
+  const csv='﻿'+[COLS.join(';'),...kayit.map(r=>COLS.map(c=>q(r[c])).join(';'))].join('\r\n');
+  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));
+  a.download='gunluk-'+new Date().toISOString().slice(0,10)+'.csv';a.click();
+};
+function parse(t){
+  const rows=[];let row=[],f='',inq=false;
+  t=t.replace(/^﻿/,'');
+  for(let i=0;i<t.length;i++){const c=t[i];
+    if(inq){if(c=='"'){if(t[i+1]=='"'){f+='"';i++}else inq=false}else f+=c}
+    else if(c=='"')inq=true;else if(c==';'){row.push(f);f=''}
+    else if(c=='\n'){row.push(f.replace(/\r$/,''));rows.push(row);row=[];f=''}else f+=c}
+  if(f||row.length){row.push(f);rows.push(row)}
+  return rows;
+}
+$('yukle').onchange=async e=>{
+  const file=e.target.files[0];if(!file)return;
+  const r=parse(await file.text());const h=r.shift()||[];
+  if(COLS.some(c=>!h.includes(c))){msg('Başlıklar uyuşmuyor: '+COLS.join(';'));return}
+  const yeni=r.filter(x=>x.length>1).map(x=>Object.fromEntries(COLS.map(c=>[c,x[h.indexOf(c)]??''])));
+  const var_=new Set(kayit.map(k=>JSON.stringify(k)));
+  const ek=yeni.filter(k=>!var_.has(JSON.stringify(k)));
+  kayit.push(...ek);sakla();ciz();msg(ek.length+' satır eklendi.');e.target.value='';
+};
+listele();ciz();
+</script>
+</body>
+</html>

@@ -8,15 +8,18 @@ Bu klasör Claude sohbetinden Claude Code'a devredildi. Kullanıcıyla Türkçe 
 - Sağlık sorunu/sakatlık belirtmedi.
 - Haftada 4 gün, en fazla 45-50 dk. Evde.
 
-## Ekipman (assets/ekipman.jpeg)
+## Ekipman (assets/ekipman.jpeg, repoya henüz eklenmedi)
 - 2 kg çift dumbbell, mat
 - Umbro 3'lü loop band seti: mavi 4,5 kg / kırmızı 6,75 kg / siyah 9 kg (lateks, ~76 cm)
 - North Pacific uzun elastik esneme bandı (pull-apart ve row için)
 
 ## Dosyalar
 - `program.json`: programın tek kaynağı (günler, hareketler, set×tekrar, ipuçları, ilerleme, beslenme, güvenlik). Programı değiştirirken sadece bunu düzenle.
-- `build.py`: `program.json` -> `program.pdf` (DejaVu fontu, çizim figürleri). `python3 build.py`
-- `program.pdf`: çıktı.
+- `build.py`: `program.json` -> `program.pdf` + `gunluk.html` (DejaVu fontu, çizim figürleri). `python3 build.py`
+- `program.pdf`: çıktı (günler, 12 haftalık plan, yazdırılabilir günlük sayfası).
+- `gunluk_sablon.html`: HTML günlüğün şablonu; hareket listesi build sırasında `program.json`'dan eklenir. Günlüğü değiştirirken bunu düzenle.
+- `gunluk.html`: üretilen antrenman günlüğü (tarayıcıda açılır, kayıtlar localStorage'da, CSV indir/yükle).
+- `gunluk.csv`: aynı sütunlarla boş CSV şablonu (`;` ayraçlı, Türkçe Excel uyumlu).
 
 ## Programın dayanağı (araştırma özeti)
 - ACSM 2026 direnç antrenmanı position stand'ı: her sınıf ekipman işe yarar, tükenene kadar gitmek şart değil, hipertrofi için haftalık ~10 set/kas grubu, tutarlılık karmaşıklıktan önemli.
@@ -27,10 +30,10 @@ Bu klasör Claude sohbetinden Claude Code'a devredildi. Kullanıcıyla Türkçe 
 - Kalça: banded glute bridge'in kalça kaslarını güçlü aktive ettiği EMG çalışmalarında gösterilmiş; ek yük (dumbbell) ve tek bacak varyasyonları ilerleme için kullanılıyor.
 
 ## Yapılacaklar (Claude Code için)
-1. `program.json`'u gözden geçir, tutarsızlık varsa düzelt.
+1. ~~`program.json`'u gözden geçir, tutarsızlık varsa düzelt.~~ (yapıldı)
 2. Gerçek hareket fotoğrafları/GIF'leri yerine şimdilik çizim figür var. İstenirse lisanslı/serbest görsel kaynakları araştırıp ekle.
-3. İlerleme takibi için basit bir antrenman günlüğü (CSV veya HTML) ekle: tarih, hareket, set, tekrar, bant rengi, zorluk 1-10.
-4. Programı 12 hafta için haftalık tabloya aç (hafta 1-2 form, 3-8 yük, 9-12 varyasyon, 7. veya 8. hafta deload).
+3. ~~İlerleme takibi için basit bir antrenman günlüğü (CSV veya HTML) ekle: tarih, hareket, set, tekrar, bant rengi, zorluk 1-10.~~ (yapıldı: gunluk.html + gunluk.csv)
+4. ~~Programı 12 hafta için haftalık tabloya aç (hafta 1-2 form, 3-8 yük, 9-12 varyasyon, 7. veya 8. hafta deload).~~ (yapıldı: `weeks`, 8. hafta deload)
 
 ## Sınırlar
 - Tıbbi tavsiye verme; ağrı/sağlık sorunu olursa hekime yönlendir.
