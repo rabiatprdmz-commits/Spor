@@ -8,7 +8,7 @@ from reportlab.lib.units import mm
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.graphics.shapes import Drawing, Group, Line, Circle, Rect
-from reportlab.platypus import Image
+from figur import POSES, LABELS, draw_pose
 HERE=os.path.dirname(os.path.abspath(__file__))
 FD='/usr/share/fonts/truetype/dejavu/'
 pdfmetrics.registerFont(TTFont('D',FD+'DejaVuSans.ttf')); pdfmetrics.registerFont(TTFont('DB',FD+'DejaVuSans-Bold.ttf'))
@@ -46,12 +46,12 @@ def fig(k):
 def day(x):
     rows=[[P('',B),P('Hareket',B),P('Set × Tekrar',B),P('İpucu / Alternatif',B)]]
     for e in x['ex']:
-        rows.append([fig(e['fig']),P(e['n']),P(e['sr'],B),P(e['tip']+'<br/><font color="#5d6b62">Alternatif: '+e['alt']+'</font>')])
+        rows.append([draw_pose(POSES[e['g']][1]) if 'g' in e else fig(e['fig']),P(e['n']),P(e['sr'],B),P(e['tip']+'<br/><font color="#5d6b62">Alternatif: '+e['alt']+'</font>')])
     t=Table(rows,colWidths=[27*mm,40*mm,30*mm,77*mm],repeatRows=1)
     t.setStyle(TableStyle([('BACKGROUND',(0,0),(-1,0),L),('LINEBELOW',(0,0),(-1,-1),.4,colors.HexColor('#d6ded2')),('VALIGN',(0,0),(-1,-1),'MIDDLE'),('TOPPADDING',(0,0),(-1,-1),3),('BOTTOMPADDING',(0,0),(-1,-1),3)]))
     return KeepTogether([P(f"{x['name']}: {x['focus']} ({x['dur']})",H),P(x['warm']),Spacer(1,3),t,Spacer(1,3),P(x['cool'])])
 d=json.load(open(os.path.join(HERE,'program.json'),encoding='utf-8'))
-st=[P(d['title'],T),P(d['subtitle'],S),P(d['how_to_read'],S),P('Her hareketin fotoğraflı anlatımı programın sonundaki "Hareket rehberi" bölümünde.',S)]
+st=[P(d['title'],T),P(d['subtitle'],S),P(d['how_to_read'],S),P('Her hareketin çizimli anlatımı programın sonundaki "Hareket rehberi" bölümünde.',S)]
 st+= [day(x) for x in d['days']]
 st+=[P('Dinlenme günleri',H),P(d['rest_days']),P('İlerleme',H)]+[P('• '+t) for t in d['progression']]
 st+=[P('Beslenme ve su',H)]+[P('• '+t) for t in d['nutrition']]
@@ -66,26 +66,13 @@ def weeks(ws):
         if w['evre']=='Hafif hafta': t.setStyle(TableStyle([('BACKGROUND',(0,i),(-1,i),colors.HexColor('#fbe9ed'))]))
     return t
 st+=[PageBreak(),P('12 haftalık plan',H),P('Her hafta aynı 4 gün ve aynı hareketler; değişen set, zorluk ve varyasyon. Zorluk parantez içinde günlükteki 1-10 ölçeğiyle.',S),weeks(d['weeks'])]
-def bandli(f,segs):
-    # loop band fotoğrafta görünmüyor: pembe şerit olarak çiz (beyaz kenarlı)
-    from PIL import Image as PI, ImageDraw
-    import io
-    im=PI.open(f).convert('RGB'); dr=ImageDraw.Draw(im)
-    for w,c in ((11,'white'),(7,'#ff2d95')):
-        for x1,y1,x2,y2 in segs: dr.line([(x1,y1),(x2,y2)],fill=c,width=w)
-        for x1,y1,x2,y2 in segs:
-            for x,y in ((x1,y1),(x2,y2)): dr.ellipse([x-w/2,y-w/2,x+w/2,y+w/2],fill=c)
-    b=io.BytesIO(); im.save(b,'JPEG',quality=85); b.seek(0); return b
 def guide(g):
-    def im(i):
-        f=os.path.join(HERE,'gorseller',f"{g['img']}_{i}.jpg")
-        if str(i) in g.get('band',{}): f=bandli(f,g['band'][str(i)])
-        return Image(f,width=38*mm,height=38*mm,kind='proportional')
+    lab=LABELS.get(g['key'],('Başlangıç','Bitiş'))
+    im=lambda i:draw_pose(POSES[g['key']][i],38*mm,38*mm*59/84)
     txt=[P('<b>Nasıl yapılır</b>')]+[P(f'{i}. {t}') for i,t in enumerate(g['steps'],1)]
     txt+=[Spacer(1,3),P('<b>Dikkat:</b> '+g['watch'])]
-    if g['note']: txt.append(P('<font color="#5d6b62">Fotoğraf notu: '+g['note']+'</font>'))
     lb=lambda x:P('<font color="#5d6b62" size="7.5">'+x+'</font>')
-    t=Table([[[im(0),lb('Başlangıç')],[im(1),lb('Bitiş')],txt]],colWidths=[40*mm,40*mm,98*mm])
+    t=Table([[[im(0),lb(lab[0])],[im(1),lb(lab[1])],txt]],colWidths=[40*mm,40*mm,98*mm])
     t.setStyle(TableStyle([('VALIGN',(0,0),(-1,-1),'TOP'),('LEFTPADDING',(0,0),(-1,-1),2),('TOPPADDING',(0,0),(-1,-1),1),('BOTTOMPADDING',(0,0),(-1,-1),1)]))
     return KeepTogether([P(g['n'],H),t,Spacer(1,2)])
 st+=[PageBreak(),P('Hareket rehberi',T),P('Her hareketin başlangıç ve bitiş pozisyonu. İlk 2 hafta her hareketi önce ağırlıksız, aynada yavaşça dene. '+d['guide_source'],S)]+[guide(g) for g in d['guide']]

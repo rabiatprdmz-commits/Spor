@@ -17,7 +17,7 @@ Bu klasör Claude sohbetinden Claude Code'a devredildi. Kullanıcıyla Türkçe 
 - `program.json`: programın tek kaynağı (günler, hareketler, set×tekrar, ipuçları, ilerleme, beslenme, güvenlik). Programı değiştirirken sadece bunu düzenle.
 - `build.py`: `program.json` -> `program.pdf` + `gunluk.html` (DejaVu fontu, çizim figürleri). `python3 build.py`
 - `program.pdf`: çıktı (günler, 12 haftalık plan, yazdırılabilir günlük sayfası).
-- `gorseller/`: hareket rehberi fotoğrafları (Free Exercise DB, Unlicense). `program.json` -> `guide` bu dosyalara `img` adıyla bağlanır.
+- `figur.py`: hareket rehberi ve gün tablolarındaki kadın figür çizimleri (başlangıç/bitiş pozları, `POSES`). Önizleme: `python3 figur.py onizleme.pdf`. Hareket metinleri `program.json` -> `guide`, pozlar `guide.key` ile eşleşir.
 - `gunluk_sablon.html`: HTML günlüğün şablonu; hareket listesi build sırasında `program.json`'dan eklenir. Günlüğü değiştirirken bunu düzenle.
 - `gunluk.html`: üretilen antrenman günlüğü (tarayıcıda açılır, kayıtlar localStorage'da, CSV indir/yükle).
 - `gunluk.csv`: aynı sütunlarla boş CSV şablonu (`;` ayraçlı, Türkçe Excel uyumlu).
@@ -32,7 +32,7 @@ Bu klasör Claude sohbetinden Claude Code'a devredildi. Kullanıcıyla Türkçe 
 
 ## Yapılacaklar (Claude Code için)
 1. ~~`program.json`'u gözden geçir, tutarsızlık varsa düzelt.~~ (yapıldı)
-2. ~~Gerçek hareket fotoğrafları/GIF'leri yerine şimdilik çizim figür var. İstenirse lisanslı/serbest görsel kaynakları araştırıp ekle.~~ (yapıldı: `guide` + `gorseller/`, Free Exercise DB, kamu malı/Unlicense)
+2. ~~Gerçek hareket fotoğrafları/GIF'leri yerine şimdilik çizim figür var. İstenirse lisanslı/serbest görsel kaynakları araştırıp ekle.~~ (yapıldı: `guide` + `figur.py`. Kullanıcı kadın; serbest fotoğraf kaynağında kadın model olmadığı için kendi çizimlerimiz kullanılıyor)
 3. ~~İlerleme takibi için basit bir antrenman günlüğü (CSV veya HTML) ekle: tarih, hareket, set, tekrar, bant rengi, zorluk 1-10.~~ (yapıldı: gunluk.html + gunluk.csv)
 4. ~~Programı 12 hafta için haftalık tabloya aç (hafta 1-2 form, 3-8 yük, 9-12 varyasyon, 7. veya 8. hafta deload).~~ (yapıldı: `weeks`, 8. hafta deload)
 
