@@ -14,35 +14,40 @@
           "fig": "squat",
           "sr": "3 set × 12-15 tekrar",
           "tip": "İnişi 3 sn'de yap, altta 1 sn bekle, topuklar yerde.",
-          "alt": "Su dolu bidon ya da sırt çantası."
+          "alt": "Su dolu bidon ya da sırt çantası.",
+          "g": "goblet"
         },
         {
           "n": "Rumen deadlift",
           "fig": "rdl",
           "sr": "3 set × 12-15 tekrar",
           "tip": "Kalçayı geri it, arka bacakta gerilmeyi hisset, sırt düz.",
-          "alt": "İki sırt çantası ya da bant ayağın altında."
+          "alt": "İki sırt çantası ya da bant ayağın altında.",
+          "g": "rdl"
         },
         {
           "n": "Glute bridge (loop band dizin üstünde)",
           "fig": "bridge",
           "sr": "3 set × 15-20 tekrar",
           "tip": "Üstte 2 sn kalçayı sık. Kolaylaşınca tek bacağa geç.",
-          "alt": "Bantsız tek bacak köprü."
+          "alt": "Bantsız tek bacak köprü.",
+          "g": "bridge"
         },
         {
           "n": "Reverse lunge",
           "fig": "lunge",
           "sr": "3 set × 10 tekrar / bacak",
           "tip": "Gövde dik, ön topuktan iterek dön.",
-          "alt": "Yerinde split squat."
+          "alt": "Yerinde split squat.",
+          "g": "lunge"
         },
         {
           "n": "Yan adım (loop band)",
           "fig": "lateral",
           "sr": "2 set × 12 adım / yön",
           "tip": "Hafif çömel, dizler içe kaçmasın, bant gergin kalsın.",
-          "alt": "Yan yatış bacak kaldırma."
+          "alt": "Yan yatış bacak kaldırma.",
+          "g": "lateral"
         }
       ],
       "cool": "Soğuma 5 dk: kalça, ön ve arka bacak esnetme."
@@ -58,42 +63,48 @@
           "fig": "kpush",
           "sr": "3 set × 8-12 tekrar",
           "tip": "Vücut dizden başa düz çizgi, 2 sn'de in.",
-          "alt": "Zorsa sehpa/duvar şınavı, kolaysa ayaklar yerde şınav."
+          "alt": "Zorsa sehpa/duvar şınavı, kolaysa ayaklar yerde şınav.",
+          "g": "kpush"
         },
         {
           "n": "Tek kol dumbbell row",
           "fig": "row",
           "sr": "3 set × 12 tekrar / kol",
           "tip": "Sırt düz, dirseği kalçaya doğru çek.",
-          "alt": "North Pacific bandı ayağın altından çekiş."
+          "alt": "North Pacific bandı ayağın altından çekiş.",
+          "g": "row"
         },
         {
           "n": "Omuz press",
           "fig": "press",
           "sr": "3 set × 10-12 tekrar",
           "tip": "Belini çökertme, karnını sık.",
-          "alt": "Bandı ayağın altına alıp press."
+          "alt": "Bandı ayağın altına alıp press.",
+          "g": "press"
         },
         {
           "n": "Bant pull-apart (North Pacific)",
           "fig": "pull",
           "sr": "3 set × 15-20 tekrar",
           "tip": "Kolları yana aç, kürek kemiklerini birleştir.",
-          "alt": "Havlu ile duvar melekleri."
+          "alt": "Havlu ile duvar melekleri.",
+          "g": "pull"
         },
         {
           "n": "Plank",
           "fig": "plank",
           "sr": "3 set × 30-45 sn",
           "tip": "Dirsekler omuz altında, karın ve kalça sıkı.",
-          "alt": "Diz üstü plank."
+          "alt": "Diz üstü plank.",
+          "g": "plank"
         },
         {
           "n": "Dead bug",
           "fig": "dead",
           "sr": "3 set × 10 tekrar / yan",
           "tip": "Karşı kol ve bacağı uzat, beli yere bastır.",
-          "alt": "Sadece bacak hareketi."
+          "alt": "Sadece bacak hareketi.",
+          "g": "dead"
         }
       ],
       "cool": "Soğuma 5 dk: omuz, göğüs ve sırt esnetme."
@@ -109,35 +120,40 @@
           "fig": "rdl",
           "sr": "3 set × 8-10 tekrar / bacak",
           "tip": "Denge için duvara hafifçe dokunabilirsin, kalça yere paralel kalsın.",
-          "alt": "İki bacak rumen deadlift + yavaş iniş."
+          "alt": "İki bacak rumen deadlift + yavaş iniş.",
+          "g": "srdl"
         },
         {
           "n": "Geniş duruş squat (dizde band + dumbbell)",
           "fig": "squat",
           "sr": "3 set × 15 tekrar",
           "tip": "Bandı dizlerde dışarı it, ayak uçları hafif dışa.",
-          "alt": "Bantsız duvar squat'ı."
+          "alt": "Bantsız duvar squat'ı.",
+          "g": "sumo"
         },
         {
           "n": "Tek bacak hip thrust (omuzlar kanepe kenarında, dumbbell kalçada)",
           "fig": "bridge",
           "sr": "3 set × 10-12 tekrar / bacak",
           "tip": "Üstte 2 sn sık, belden değil kalçadan kalk.",
-          "alt": "Yerde iki bacak köprü + loop band."
+          "alt": "Yerde iki bacak köprü + loop band.",
+          "g": "hipthrust"
         },
         {
           "n": "Donkey kick (loop band)",
           "fig": "donkey",
           "sr": "3 set × 15 tekrar / bacak",
           "tip": "Dizi bükük tut, kalçayı sık, beli çökertme.",
-          "alt": "Bantsız, yavaş tempo ve üstte 2 sn bekleme."
+          "alt": "Bantsız, yavaş tempo ve üstte 2 sn bekleme.",
+          "g": "donkey"
         },
         {
           "n": "Yan plank",
           "fig": "plank",
           "sr": "3 set × 20-30 sn / yan",
           "tip": "Dirsek omuz altında, kalça düşmesin, vücut tek çizgi.",
-          "alt": "Dizler bükülü yan plank."
+          "alt": "Dizler bükülü yan plank.",
+          "g": "side"
         }
       ],
       "cool": "Soğuma 5 dk: kalça, arka bacak ve alt sırt esnetme."
@@ -153,28 +169,32 @@
           "fig": "squat",
           "sr": "2 set × 15 tekrar",
           "tip": "Topuklar yerde, göğüs dik.",
-          "alt": "Bidon."
+          "alt": "Bidon.",
+          "g": "goblet"
         },
         {
           "n": "Dumbbell row",
           "fig": "row",
           "sr": "2 set × 12 tekrar",
           "tip": "Sırt düz, kürek kemiklerini birleştir.",
-          "alt": "Bant çekiş."
+          "alt": "Bant çekiş.",
+          "g": "row"
         },
         {
           "n": "Diz üstü şınav",
           "fig": "kpush",
           "sr": "2 set × 10 tekrar",
           "tip": "Kontrollü in, kontrollü it.",
-          "alt": "Sehpa şınavı."
+          "alt": "Sehpa şınavı.",
+          "g": "kpush"
         },
         {
           "n": "Glute bridge (loop band)",
           "fig": "bridge",
           "sr": "2 set × 15 tekrar",
           "tip": "Üstte 2 sn sık.",
-          "alt": "Bantsız."
+          "alt": "Bantsız.",
+          "g": "bridge"
         },
         {
           "n": "Kardiyo: tempolu yürüyüş ya da interval",
@@ -304,6 +324,211 @@
       "zorluk": "2-3 tekrar kalsın (~7-8)",
       "odak": "Hafta 1 ile aynı hareketlerde tekrar/bant karşılaştır. Son ölçü + fotoğraf; hedefi ölçülere göre yeniden belirle.",
       "yuruyus": "3 × 45 dk"
+    }
+  ],
+  "guide_source": "Fotoğraflar: Free Exercise DB (github.com/yuhonas/free-exercise-db), kamu malı (Unlicense). Fotoğraflardaki ekipman bazen seninkinden farklı; farkı her hareketin altında yazdım.",
+  "guide": [
+    {
+      "key": "goblet",
+      "n": "Goblet squat",
+      "img": "Goblet_Squat",
+      "steps": [
+        "Ayaklar omuz genişliğinde, uçlar hafif dışa.",
+        "Dumbbell'ı dikey tut, üst ucunu iki elinle göğsünün önünde kavra.",
+        "Kalçayı geri ve aşağı göndererek 3 sn'de in; dirsekler dizlerin içine doğru.",
+        "Uyluklar yere paralele yakın olunca 1 sn bekle, topuklardan iterek kalk."
+      ],
+      "watch": "Dizler ayak uçlarıyla aynı yöne baksın, içe kaçmasın. Topuklar kalkmasın, göğüs dik.",
+      "note": "Fotoğrafta kettlebell var; sen dumbbell kullanacaksın, hareket aynı."
+    },
+    {
+      "key": "rdl",
+      "n": "Rumen deadlift",
+      "img": "Stiff-Legged_Dumbbell_Deadlift",
+      "steps": [
+        "Ayaklar kalça genişliğinde, dumbbell'lar uyluklarının önünde.",
+        "Dizleri hafif bük ve bu açıyı hareket boyunca sabit tut.",
+        "Kalçayı geriye iterek öne eğil; dumbbell'lar bacağına yakın kayarak insin.",
+        "Arka bacakta gerilme hissedince (genelde dizin biraz altı) kalçayı sıkıp doğrul."
+      ],
+      "watch": "Sırt düz kalsın, kamburlaşma. Bu bir eğilme değil, kalçadan menteşe hareketi.",
+      "note": "Fotoğraftaki kişi dizlerini çok az büküyor; sen biraz daha bükebilirsin."
+    },
+    {
+      "key": "srdl",
+      "n": "Tek bacak rumen deadlift",
+      "img": "Kettlebell_One-Legged_Deadlift",
+      "steps": [
+        "Tek bacak üzerinde dur, destek dizini hafif bük. Dumbbell karşı elde.",
+        "Gövdeyi öne eğerken boştaki bacağı geriye uzat; gövde ve arka bacak tek çizgi.",
+        "Gerilmeyi hissedince kalçayı sıkarak dik pozisyona dön."
+      ],
+      "watch": "Kalçalar yere paralel kalsın, boştaki bacağın kalçası yukarı açılmasın. Denge için diğer elinle duvara dokunabilirsin.",
+      "note": "Fotoğrafta kettlebell var; dumbbell ile aynı."
+    },
+    {
+      "key": "bridge",
+      "n": "Glute bridge (loop band)",
+      "img": "Butt_Lift_Bridge",
+      "steps": [
+        "Sırt üstü yat, dizler bükülü, ayaklar kalça genişliğinde yerde. Loop band dizlerin biraz üstünde.",
+        "Topuklardan iterek kalçanı kaldır; omuz-kalça-diz düz çizgi olsun.",
+        "Üstte 2 sn kalçanı sık, bandı dizlerle hafif dışarı it.",
+        "Kontrollü in, kalça yere değmeden tekrar kalk."
+      ],
+      "watch": "Belinden değil kalçandan kalk; üstte belini aşırı kavislendirme. Karnını hafif sık.",
+      "note": "Fotoğrafta bant yok; sen bandı dizlerin üstüne takacaksın."
+    },
+    {
+      "key": "hipthrust",
+      "n": "Tek bacak hip thrust",
+      "img": "Single_Leg_Glute_Bridge",
+      "steps": [
+        "Kürek kemiklerini kanepenin kenarına daya, dizler bükülü. Dumbbell kalça kemiklerinin üstünde, elinle tut.",
+        "Bir bacağı havaya kaldır ya da dizini göğsüne çek.",
+        "Yerdeki topuktan iterek kalçayı kaldır; üstte gövde yere paralel.",
+        "Üstte 2 sn sık, kontrollü in."
+      ],
+      "watch": "Hareket kalçadan gelsin, belden değil. Çene hafif göğse doğru, boyun rahat.",
+      "note": "Fotoğrafta sırt yerde; kolay versiyon budur. Kanepeye yaslanınca hareket açıklığı artar."
+    },
+    {
+      "key": "lunge",
+      "n": "Reverse lunge",
+      "img": "Dumbbell_Rear_Lunge",
+      "steps": [
+        "Ayaklar kalça genişliğinde, dumbbell'lar yanlarda.",
+        "Bir bacakla geriye büyük adım at; arka diz yere doğru insin.",
+        "Ön diz yaklaşık 90°, gövde dik.",
+        "Ön topuktan iterek başlangıca dön. Bir bacağın tekrarlarını bitirip diğerine geç."
+      ],
+      "watch": "Ön diz içe kaçmasın, ayak ucuyla aynı yöne baksın. Arka dizi yere vurma.",
+      "note": ""
+    },
+    {
+      "key": "lateral",
+      "n": "Yan adım (loop band)",
+      "img": "Monster_Walk",
+      "steps": [
+        "Loop bandı dizlerin üstüne (zorlaşınca ayak bileklerine) tak.",
+        "Ayaklar kalça genişliğinde, hafif çömel, eller belde.",
+        "Bir ayakla yana adım at, diğerini yaklaştır ama bant hiç gevşemesin.",
+        "Bir yöne 12 adım, sonra diğer yöne 12 adım."
+      ],
+      "watch": "Gövde inip kalkmasın, aynı yükseklikte kal. Dizler içe kaçmasın.",
+      "note": "Fotoğrafta bant görünmüyor; dizlerin üstünde olduğunu düşün."
+    },
+    {
+      "key": "sumo",
+      "n": "Geniş duruş squat",
+      "img": "Plie_Dumbbell_Squat",
+      "steps": [
+        "Ayaklar omuz genişliğinden geniş, uçlar dışa. Loop band dizlerin üstünde.",
+        "Dumbbell'ı iki elinle bacaklarının arasında sarkıt.",
+        "Dizleri dışa iterek dik gövdeyle in.",
+        "Topuklardan iterek kalk, üstte kalçanı sık."
+      ],
+      "watch": "Dizler ayak uçlarının üstünden dışarıya doğru gitsin. Göğüs dik, sırt düz.",
+      "note": ""
+    },
+    {
+      "key": "donkey",
+      "n": "Donkey kick (loop band)",
+      "img": "Glute_Kickback",
+      "steps": [
+        "Dört ayak pozisyonu: eller omuz altında, dizler kalça altında. Bant dizlerin üstünde.",
+        "Bir dizi 90° bükülü tutarak tabanını tavana doğru it.",
+        "Üstte kalçayı sık, 1 sn bekle, kontrollü indir."
+      ],
+      "watch": "Belini çökertme, karnını sık. Bacağı yükseğe atmak için belini bükme; kalça seviyesi yeter.",
+      "note": "Fotoğrafta dirsekler yerde ve bacak düz uzatılıyor; senin versiyonunda diz bükülü kalıyor."
+    },
+    {
+      "key": "kpush",
+      "n": "Diz üstü şınav",
+      "img": "Pushups",
+      "steps": [
+        "Eller omuz genişliğinin biraz dışında. Dizlerini yere koy (altına mat).",
+        "Dizden başa kadar vücudun düz çizgi olsun, karın ve kalça sıkı.",
+        "Dirsekleri vücuda yaklaşık 45° açıyla bükerek 2 sn'de göğsünü yere yaklaştır.",
+        "Yeri iterek yukarı çık."
+      ],
+      "watch": "Kalça havaya kalkmasın ya da sarkmasın. Baş omurgayla aynı hizada.",
+      "note": "Fotoğrafta tam şınav var. Sen aynı hareketi dizler yerde yapacaksın."
+    },
+    {
+      "key": "row",
+      "n": "Tek kol dumbbell row",
+      "img": "One-Arm_Dumbbell_Row",
+      "steps": [
+        "Bir elini ve aynı taraftaki dizini sehpa, sandalye ya da kanepeye koy.",
+        "Diğer elinde dumbbell kol düz sarksın; sırt yere paralele yakın ve düz.",
+        "Dirseği kalçana doğru çekerek dumbbell'ı yukarı al, kürek kemiğini sık.",
+        "Kontrollü indir."
+      ],
+      "watch": "Gövdeyi döndürerek çekme. Omzu kulağa doğru kaldırma.",
+      "note": ""
+    },
+    {
+      "key": "press",
+      "n": "Omuz press",
+      "img": "Dumbbell_Shoulder_Press",
+      "steps": [
+        "Ayakta dur (ya da sandalyede otur). Dumbbell'lar omuz hizasında, avuçlar öne.",
+        "Karnını sık, dumbbell'ları başının üstüne it.",
+        "Yukarıda kollar neredeyse düz, sonra kontrollü olarak omuz hizasına indir."
+      ],
+      "watch": "Belini geriye kavislendirme. Kolları tamamen kilitleme.",
+      "note": "Fotoğrafta oturarak yapılıyor; ayakta da aynı."
+    },
+    {
+      "key": "pull",
+      "n": "Bant pull-apart",
+      "img": "Band_Pull_Apart",
+      "steps": [
+        "North Pacific bandını omuz genişliğinde tut, kollar göğüs hizasında önde.",
+        "Kolları düz tutarak bandı iki yana aç, bant göğsüne yaklaşsın.",
+        "Kürek kemiklerini 1 sn birleştir, kontrollü geri dön."
+      ],
+      "watch": "Omuzları kulaklara doğru kaldırma. Bel kavisi artmasın, karın sıkı.",
+      "note": "Bant çok zorlarsa ellerini bantta daha geniş tut."
+    },
+    {
+      "key": "plank",
+      "n": "Plank",
+      "img": "Plank",
+      "steps": [
+        "Dirsekler omuzların tam altında, ön kollar yerde.",
+        "Ayak uçlarında yüksel; topuktan başa düz çizgi.",
+        "Karnını ve kalçanı sık, normal nefes al, süre boyunca tut."
+      ],
+      "watch": "Kalça sarkmasın ya da yukarı kalkmasın. Zorsa dizler yerde yap.",
+      "note": "Soldaki fotoğraf pozisyona geçiş; sağdaki doğru plank."
+    },
+    {
+      "key": "dead",
+      "n": "Dead bug",
+      "img": "Dead_Bug",
+      "steps": [
+        "Sırt üstü yat; kollar tavana, dizler 90° bükülü havada.",
+        "Belini yere bastır.",
+        "Sağ kolu başının arkasına, sol bacağı ileriye yavaşça uzat; yere değdirme.",
+        "Başa dön, diğer tarafla tekrarla."
+      ],
+      "watch": "Bel yerden kalkmasın; kalkıyorsa daha az uzat. Hareketi yavaş yap, nefesi tutma.",
+      "note": ""
+    },
+    {
+      "key": "side",
+      "n": "Yan plank",
+      "img": "Side_Bridge",
+      "steps": [
+        "Yan yat; dirsek omzun tam altında, bacaklar üst üste.",
+        "Kalçanı kaldır; baştan ayağa düz çizgi.",
+        "Süre boyunca tut, sonra diğer tarafa geç."
+      ],
+      "watch": "Kalça düşmesin, öne ya da arkaya dönmesin. Zorsa alttaki dizi bükülü yap.",
+      "note": ""
     }
   ]
 }

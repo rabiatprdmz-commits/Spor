@@ -8,6 +8,7 @@ from reportlab.lib.units import mm
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.graphics.shapes import Drawing, Group, Line, Circle, Rect
+from reportlab.platypus import Image
 HERE=os.path.dirname(os.path.abspath(__file__))
 FD='/usr/share/fonts/truetype/dejavu/'
 pdfmetrics.registerFont(TTFont('D',FD+'DejaVuSans.ttf')); pdfmetrics.registerFont(TTFont('DB',FD+'DejaVuSans-Bold.ttf'))
@@ -50,7 +51,7 @@ def day(x):
     t.setStyle(TableStyle([('BACKGROUND',(0,0),(-1,0),L),('LINEBELOW',(0,0),(-1,-1),.4,colors.HexColor('#d6ded2')),('VALIGN',(0,0),(-1,-1),'MIDDLE'),('TOPPADDING',(0,0),(-1,-1),3),('BOTTOMPADDING',(0,0),(-1,-1),3)]))
     return KeepTogether([P(f"{x['name']}: {x['focus']} ({x['dur']})",H),P(x['warm']),Spacer(1,3),t,Spacer(1,3),P(x['cool'])])
 d=json.load(open(os.path.join(HERE,'program.json'),encoding='utf-8'))
-st=[P(d['title'],T),P(d['subtitle'],S),P(d['how_to_read'],S)]
+st=[P(d['title'],T),P(d['subtitle'],S),P(d['how_to_read'],S),P('Her hareketin fotoğraflı anlatımı programın sonundaki "Hareket rehberi" bölümünde.',S)]
 st+= [day(x) for x in d['days']]
 st+=[P('Dinlenme günleri',H),P(d['rest_days']),P('İlerleme',H)]+[P('• '+t) for t in d['progression']]
 st+=[P('Beslenme ve su',H)]+[P('• '+t) for t in d['nutrition']]
@@ -65,6 +66,16 @@ def weeks(ws):
         if w['evre']=='Hafif hafta': t.setStyle(TableStyle([('BACKGROUND',(0,i),(-1,i),colors.HexColor('#fbe9ed'))]))
     return t
 st+=[PageBreak(),P('12 haftalık plan',H),P('Her hafta aynı 4 gün ve aynı hareketler; değişen set, zorluk ve varyasyon. Zorluk parantez içinde günlükteki 1-10 ölçeğiyle.',S),weeks(d['weeks'])]
+def guide(g):
+    im=lambda i:Image(os.path.join(HERE,'gorseller',f"{g['img']}_{i}.jpg"),width=38*mm,height=38*mm,kind='proportional')
+    txt=[P('<b>Nasıl yapılır</b>')]+[P(f'{i}. {t}') for i,t in enumerate(g['steps'],1)]
+    txt+=[Spacer(1,3),P('<b>Dikkat:</b> '+g['watch'])]
+    if g['note']: txt.append(P('<font color="#5d6b62">Fotoğraf notu: '+g['note']+'</font>'))
+    lb=lambda x:P('<font color="#5d6b62" size="7.5">'+x+'</font>')
+    t=Table([[[im(0),lb('Başlangıç')],[im(1),lb('Bitiş')],txt]],colWidths=[40*mm,40*mm,98*mm])
+    t.setStyle(TableStyle([('VALIGN',(0,0),(-1,-1),'TOP'),('LEFTPADDING',(0,0),(-1,-1),2),('TOPPADDING',(0,0),(-1,-1),1),('BOTTOMPADDING',(0,0),(-1,-1),1)]))
+    return KeepTogether([P(g['n'],H),t,Spacer(1,2)])
+st+=[PageBreak(),P('Hareket rehberi',T),P('Her hareketin başlangıç ve bitiş pozisyonu. İlk 2 hafta her hareketi önce ağırlıksız, aynada yavaşça dene. '+d['guide_source'],S)]+[guide(g) for g in d['guide']]
 LOG=['Tarih','Hareket','Set','Tekrar','Bant / kg','Zorluk 1-10','Not']
 lt=Table([[P(h,B) for h in LOG]]+[['']*7 for _ in range(24)],colWidths=[20*mm,50*mm,12*mm,18*mm,22*mm,20*mm,36*mm],rowHeights=[None]+[8.6*mm]*24,repeatRows=1)
 lt.setStyle(TableStyle([('BACKGROUND',(0,0),(-1,0),L),('GRID',(0,0),(-1,-1),.4,colors.HexColor('#c9d3c4')),('VALIGN',(0,0),(-1,-1),'MIDDLE')]))
