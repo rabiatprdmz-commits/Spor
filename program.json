@@ -377,7 +377,25 @@
         "Kontrollü in, kalça yere değmeden tekrar kalk."
       ],
       "watch": "Belinden değil kalçandan kalk; üstte belini aşırı kavislendirme. Karnını hafif sık.",
-      "note": "Fotoğrafta bant yok; sen bandı dizlerin üstüne takacaksın."
+      "note": "Bant fotoğrafa sonradan çizildi (pembe): dizlerin biraz üstünde, uylukları sarar.",
+      "band": {
+        "0": [
+          [
+            148,
+            81,
+            132,
+            103
+          ]
+        ],
+        "1": [
+          [
+            136,
+            77,
+            128,
+            103
+          ]
+        ]
+      }
     },
     {
       "key": "hipthrust",
@@ -416,7 +434,25 @@
         "Bir yöne 12 adım, sonra diğer yöne 12 adım."
       ],
       "watch": "Gövde inip kalkmasın, aynı yükseklikte kal. Dizler içe kaçmasın.",
-      "note": "Fotoğrafta bant görünmüyor; dizlerin üstünde olduğunu düşün."
+      "note": "Bant fotoğrafa sonradan çizildi (pembe): iki uyluğu dizlerin biraz üstünden sarar, adım boyunca gergin kalır.",
+      "band": {
+        "0": [
+          [
+            158,
+            158,
+            215,
+            159
+          ]
+        ],
+        "1": [
+          [
+            184,
+            159,
+            235,
+            159
+          ]
+        ]
+      }
     },
     {
       "key": "sumo",
@@ -429,7 +465,25 @@
         "Topuklardan iterek kalk, üstte kalçanı sık."
       ],
       "watch": "Dizler ayak uçlarının üstünden dışarıya doğru gitsin. Göğüs dik, sırt düz.",
-      "note": ""
+      "note": "Bant fotoğrafa sonradan çizildi (pembe): dizlerin biraz üstünde; inerken dizlerinle bandı dışarı it.",
+      "band": {
+        "0": [
+          [
+            129,
+            169,
+            201,
+            170
+          ]
+        ],
+        "1": [
+          [
+            114,
+            160,
+            210,
+            159
+          ]
+        ]
+      }
     },
     {
       "key": "donkey",
@@ -441,7 +495,37 @@
         "Üstte kalçayı sık, 1 sn bekle, kontrollü indir."
       ],
       "watch": "Belini çökertme, karnını sık. Bacağı yükseğe atmak için belini bükme; kalça seviyesi yeter.",
-      "note": "Fotoğrafta dirsekler yerde ve bacak düz uzatılıyor; senin versiyonunda diz bükülü kalıyor."
+      "note": "Bant fotoğrafa sonradan çizildi (pembe): iki uyluğu dizlerin üstünden sarar, tekme atan bacak bandı gerer.",
+      "band": {
+        "0": [
+          [
+            108,
+            160,
+            133,
+            160
+          ]
+        ],
+        "1": [
+          [
+            113,
+            150,
+            137,
+            150
+          ],
+          [
+            125,
+            150,
+            82,
+            92
+          ],
+          [
+            82,
+            82,
+            82,
+            102
+          ]
+        ]
+      }
     },
     {
       "key": "kpush",

@@ -66,8 +66,21 @@ def weeks(ws):
         if w['evre']=='Hafif hafta': t.setStyle(TableStyle([('BACKGROUND',(0,i),(-1,i),colors.HexColor('#fbe9ed'))]))
     return t
 st+=[PageBreak(),P('12 haftalık plan',H),P('Her hafta aynı 4 gün ve aynı hareketler; değişen set, zorluk ve varyasyon. Zorluk parantez içinde günlükteki 1-10 ölçeğiyle.',S),weeks(d['weeks'])]
+def bandli(f,segs):
+    # loop band fotoğrafta görünmüyor: pembe şerit olarak çiz (beyaz kenarlı)
+    from PIL import Image as PI, ImageDraw
+    import io
+    im=PI.open(f).convert('RGB'); dr=ImageDraw.Draw(im)
+    for w,c in ((11,'white'),(7,'#ff2d95')):
+        for x1,y1,x2,y2 in segs: dr.line([(x1,y1),(x2,y2)],fill=c,width=w)
+        for x1,y1,x2,y2 in segs:
+            for x,y in ((x1,y1),(x2,y2)): dr.ellipse([x-w/2,y-w/2,x+w/2,y+w/2],fill=c)
+    b=io.BytesIO(); im.save(b,'JPEG',quality=85); b.seek(0); return b
 def guide(g):
-    im=lambda i:Image(os.path.join(HERE,'gorseller',f"{g['img']}_{i}.jpg"),width=38*mm,height=38*mm,kind='proportional')
+    def im(i):
+        f=os.path.join(HERE,'gorseller',f"{g['img']}_{i}.jpg")
+        if str(i) in g.get('band',{}): f=bandli(f,g['band'][str(i)])
+        return Image(f,width=38*mm,height=38*mm,kind='proportional')
     txt=[P('<b>Nasıl yapılır</b>')]+[P(f'{i}. {t}') for i,t in enumerate(g['steps'],1)]
     txt+=[Spacer(1,3),P('<b>Dikkat:</b> '+g['watch'])]
     if g['note']: txt.append(P('<font color="#5d6b62">Fotoğraf notu: '+g['note']+'</font>'))
