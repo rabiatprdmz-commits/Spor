@@ -1,0 +1,76 @@
+{
+  "title": "12 Haftalık Ev Programı: Yağ Azaltma + Kas Tonusu",
+  "subtitle": "Haftada 4 antrenman, 45-50 dk. Dumbbell (2 kg çift), mat, Umbro 3'lü loop band (mavi 4,5 / kırmızı 6,75 / siyah 9 kg), North Pacific uzun elastik bant.",
+  "how_to_read": "\"3 set × 12-15 tekrar\": hareketi 12-15 kez yap, 45-75 sn dinlen, bunu toplam 3 kez tekrarla. Her setin sonunda 1-3 tekrarlık gücün kalmalı (zor ama form bozulmadan).",
+  "days": [
+    {
+      "name": "Pazartesi", "focus": "Alt vücut A (kalça odaklı)", "dur": "45-50 dk",
+      "warm": "Isınma 5 dk: yerinde tempolu yürüyüş, kalça çemberleri, 10 vücut ağırlığı squat, bantsız 10 glute bridge.",
+      "ex": [
+        {"n": "Goblet squat", "fig": "squat", "sr": "3 set × 12-15 tekrar", "tip": "İnişi 3 sn'de yap, altta 1 sn bekle, topuklar yerde.", "alt": "Su dolu bidon ya da sırt çantası."},
+        {"n": "Rumen deadlift", "fig": "rdl", "sr": "3 set × 12-15 tekrar", "tip": "Kalçayı geri it, arka bacakta gerilmeyi hisset, sırt düz.", "alt": "İki sırt çantası ya da bant ayağın altında."},
+        {"n": "Glute bridge (loop band dizin üstünde)", "fig": "bridge", "sr": "3 set × 15-20 tekrar", "tip": "Üstte 2 sn kalçayı sık. Kolaylaşınca tek bacağa geç.", "alt": "Bantsız tek bacak köprü."},
+        {"n": "Reverse lunge", "fig": "lunge", "sr": "3 set × 10 tekrar / bacak", "tip": "Gövde dik, ön topuktan iterek dön.", "alt": "Yerinde split squat."},
+        {"n": "Yan adım (loop band)", "fig": "lateral", "sr": "2 set × 12 adım / yön", "tip": "Hafif çömel, dizler içe kaçmasın, bant gergin kalsın.", "alt": "Yan yatış bacak kaldırma."}
+      ],
+      "cool": "Soğuma 5 dk: kalça, ön ve arka bacak esnetme."
+    },
+    {
+      "name": "Salı", "focus": "Üst vücut + core", "dur": "45 dk",
+      "warm": "Isınma 5 dk: kol çemberleri, bant ile omuz açma, 10 diz üstü şınav (kolay).",
+      "ex": [
+        {"n": "Diz üstü şınav", "fig": "kpush", "sr": "3 set × 8-12 tekrar", "tip": "Vücut dizden başa düz çizgi, 2 sn'de in.", "alt": "Zorsa sehpa/duvar şınavı, kolaysa ayaklar yerde şınav."},
+        {"n": "Tek kol dumbbell row", "fig": "row", "sr": "3 set × 12 tekrar / kol", "tip": "Sırt düz, dirseği kalçaya doğru çek.", "alt": "North Pacific bandı ayağın altından çekiş."},
+        {"n": "Omuz press", "fig": "press", "sr": "3 set × 10-12 tekrar", "tip": "Belini çökertme, karnını sık.", "alt": "Bandı ayağın altına alıp press."},
+        {"n": "Bant pull-apart (North Pacific)", "fig": "pull", "sr": "3 set × 15-20 tekrar", "tip": "Kolları yana aç, kürek kemiklerini birleştir.", "alt": "Havlu ile duvar melekleri."},
+        {"n": "Plank", "fig": "plank", "sr": "3 set × 30-45 sn", "tip": "Dirsekler omuz altında, karın ve kalça sıkı.", "alt": "Diz üstü plank."},
+        {"n": "Dead bug", "fig": "dead", "sr": "3 set × 10 tekrar / yan", "tip": "Karşı kol ve bacağı uzat, beli yere bastır.", "alt": "Sadece bacak hareketi."}
+      ],
+      "cool": "Soğuma 5 dk: omuz, göğüs ve sırt esnetme."
+    },
+    {
+      "name": "Perşembe", "focus": "Alt vücut B (kalça + arka bacak)", "dur": "45-50 dk",
+      "warm": "Isınma 5 dk: yürüyüş, kalça çemberi, bant ile 10 yan adım.",
+      "ex": [
+        {"n": "Tek bacak rumen deadlift", "fig": "rdl", "sr": "3 set × 8-10 tekrar / bacak", "tip": "Denge için duvara hafifçe dokunabilirsin, kalça yere paralel kalsın.", "alt": "İki bacak rumen deadlift + yavaş iniş."},
+        {"n": "Geniş duruş squat (dizde band + dumbbell)", "fig": "squat", "sr": "3 set × 15 tekrar", "tip": "Bandı dizlerde dışarı it, ayak uçları hafif dışa.", "alt": "Bantsız duvar squat'ı."},
+        {"n": "Tek bacak glute bridge (omuzlar kanepe kenarında, dumbbell kalçada)", "fig": "bridge", "sr": "3 set × 10-12 tekrar / bacak", "tip": "Üstte 2 sn sık, belden değil kalçadan kalk.", "alt": "Yerde iki bacak köprü + loop band."},
+        {"n": "Donkey kick (loop band)", "fig": "donkey", "sr": "3 set × 15 tekrar / bacak", "tip": "Dizi bükük tut, kalçayı sık, beli çökertme.", "alt": "Bantsız, ayak bileğine hafif ağırlıkla."}
+      ],
+      "cool": "Soğuma 5 dk: kalça, arka bacak ve alt sırt esnetme."
+    },
+    {
+      "name": "Cumartesi", "focus": "Tam vücut + kardiyo", "dur": "50 dk",
+      "warm": "Isınma 5 dk: yürüyüş, squat, kol çemberi.",
+      "ex": [
+        {"n": "Goblet squat", "fig": "squat", "sr": "2 set × 15 tekrar", "tip": "Topuklar yerde, göğüs dik.", "alt": "Bidon."},
+        {"n": "Dumbbell row", "fig": "row", "sr": "2 set × 12 tekrar", "tip": "Sırt düz, kürek kemiklerini birleştir.", "alt": "Bant çekiş."},
+        {"n": "Diz üstü şınav", "fig": "kpush", "sr": "2 set × 10 tekrar", "tip": "Kontrollü in, kontrollü it.", "alt": "Sehpa şınavı."},
+        {"n": "Glute bridge (loop band)", "fig": "bridge", "sr": "2 set × 15 tekrar", "tip": "Üstte 2 sn sık.", "alt": "Bantsız."},
+        {"n": "Kardiyo: tempolu yürüyüş ya da interval", "fig": "walk", "sr": "20 dk", "tip": "Orta tempo (konuşabilirsin ama nefesin hızlı) ya da 1 dk hızlı / 1 dk yavaş x 10 tur. Araştırmalara göre yağ kaybı benzer, sevdiğini seç.", "alt": "Jumping jack + dağcı intervali."}
+      ],
+      "cool": "Soğuma 5 dk: tam vücut esneme."
+    }
+  ],
+  "rest_days": "Çarşamba, Cuma, Pazar: 30-45 dk tempolu yürüyüş (günlük adım hedefi 8-10 bin). Haftalık toplam orta tempolu hareket 150 dk üzerine çıksın.",
+  "progression": [
+    "Her setin sonunda 1-3 tekrar gücün kalsın (zor ama kontrollü). Tükenene kadar gitmek gerekmiyor.",
+    "Çift ilerleme: tüm setleri tekrar aralığının üst sınırında rahat bitirince sırayla artır: önce tekrar, sonra bant (mavi → kırmızı → siyah) veya dumbbell, sonra tek bacak/yavaş tempo.",
+    "Hafta 1-2: formu öğren, zorluk kolay-orta. Hafta 3-8: setleri zorla. Hafta 9-12: tek bacak ve tempo varyasyonları.",
+    "2 kg dumbbell 6-10 hafta içinde hafif gelecek. 5-8 kg arası ayarlanabilir dumbbell çifti iyi bir yatırım.",
+    "Her 6-8 haftada bir hafif bir hafta: aynı hareketler, setler yarıya.",
+    "Takip: haftada bir bel/kalça ölçüsü, 2 haftada bir aynı ışıkta fotoğraf, antrenman günlüğü. Tartı tek ölçüt olmasın."
+  ],
+  "nutrition": [
+    "Protein: günde yaklaşık 1,4-2,0 g/kg, yani senin için 80-115 g. 3-4 öğüne yay.",
+    "Ağır kısıtlama yok. Hedef yavaş ve sürdürülebilir kayıp: haftada 0,25-0,5 kg ya da hiç kilo değişmese bile bel çevresinin azalması.",
+    "Su: günde 2-2,5 litre. Uyku: 7-8 saat.",
+    "İlk 12 haftanın gerçekçi hedefi: 3-4 kg ya da bel çevresinde belirgin azalma + güç artışı. 12. haftada ölçülere bakıp hedefi yeniden belirle."
+  ],
+  "safety": [
+    "Her seansta ısınma yap, ağrı ile kas yorgunluğunu ayır. Ağrı varsa hareketi bırak.",
+    "Diz ayak parmağıyla aynı yöne baksın, topuklar yerde, sırt düz.",
+    "Loop bandı çıplak cilde değil, pantolon/tayt üstüne tak. Bandı kullanmadan önce çatlak var mı kontrol et.",
+    "İlk 2 hafta ağırlıkları hafif tut. Önce form, sonra yük."
+  ]
+}
